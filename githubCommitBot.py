@@ -1,8 +1,14 @@
 from urllib2 import urlopen
 import json
+import csv
 
+### scrapes a repo for commits
+# input: owner (string), repo (string)
+# return: array of json entries representing commits
+#
+### TODOS
+#   pagination
 
-#[TODO: Data pagination]
 def get_commits(owner, repo):
     url = 'https://api.github.com/repos/{owner}/{repo}/commits'.format(owner=owner, repo=repo)
     response = urlopen(url).read()
@@ -11,6 +17,8 @@ def get_commits(owner, repo):
 
 
 if __name__ == '__main__':
-    commits = get_latest_commits('techstart-dev', 'techstart-dev.github.io')
+    commits = get_commits('techstart-dev', 'techstart-dev.github.io')
+    csvApp = csv.writer(open("output.csv", "wb+"))
+    csvApp.writerow(["date","name","email"])
     for commit in commits:
-    	print(commit['commit']['committer']['date'])
+    	print(commit['commit']['committer'])
