@@ -17,8 +17,22 @@ def get_commits(owner, repo):
 
 
 if __name__ == '__main__':
-    commits = get_commits('techstart-dev', 'techstart-dev.github.io')
-    csvApp = csv.writer(open("output.csv", "wb+"))
-    csvApp.writerow(["date","name","email"])
-    for commit in commits:
-    	print(commit['commit']['committer'])
+
+	GIT_HANDLE 	= 'techstart-dev'
+	REPO_NAME 	= 'techstart-dev.github.io'
+	OUTPUT_CSV  = 'output.csv'
+
+	commits = get_commits(GIT_HANDLE, REPO_NAME)
+	csvApp = csv.writer(open('output.csv', "wb+"))
+	csvApp.writerow(["repo", "date","name","email"])
+
+	for commit in commits:
+		commit_commiter_info = commit['commit']['committer']
+		
+		date 	= commit_commiter_info["date"]
+		name 	= commit_commiter_info["name"]
+		email 	= commit_commiter_info["email"]
+
+		csvApp.writerow([REPO_NAME, date, name, email])
+
+	print "Script ran succesfuly."
