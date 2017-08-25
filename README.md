@@ -16,12 +16,13 @@ pip install urlib2
 ```
 python githubCommitBot.py
 ```
-This will generate a file called **output.csv** that contains commit data as 
+This will generate a file called **output.csv** in the project's root directory.
 
 ## Resources
 -[Github Developer Guide](https://developer.github.com/v3/)
 
 ## TODO
+- More collumns
 - Data Pagination
 - Arguments
 - Read CSV
