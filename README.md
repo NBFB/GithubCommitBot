@@ -16,9 +16,15 @@ pip install urlib2
 ```
 python githubCommitBot.py
 ```
+This will generate a file called **output.csv** that contains commit data as 
+
+## Resources
+-[Github Developer Guide](https://developer.github.com/v3/)
 
 ## TODO
 - Data Pagination
 - Arguments
 - Read CSV
-- Rate limiting
+- Deal with Rate limiting Issues - Threads/Locks/Chronjobs
+- Integrate with existing TechStart technology - webhooks, IFTTT, Zappier
+- Write up tutorial so others can contribute
